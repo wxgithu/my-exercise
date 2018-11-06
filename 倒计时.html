@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+  p{font-size:45px;color:red}
+  </style>
+  <script type="text/javascript">
+  function startTime(){
+	  var now=new Date();
+      var target=new Date('2018-11-16');
+      var d=target-now;
+
+      d=parseInt(d/1000);
+//获取天数
+var day=parseInt(d/(24*60*60));
+//console.log(day);//45天
+//获取小时
+//得到小时——秒数和一天取余
+var hours=d%(24*60*60);
+//结果不满一天，转成小时
+hours=parseInt(hours/(60*60));
+//console.log(hours);//12小时
+//获取分钟
+var minutes=d%(60*60);
+minutes=parseInt(minutes/60);
+//console.log(minutes);//18分钟
+//获取秒数
+var seconds=d%60;
+document.getElementById('tex').innerHTML=`<p>距离还有：${day}天-${hours}小时-${minutes}分钟-${seconds}秒</p>`;
+t=setTimeout('startTime()',500);
+  }
+  </script>
+ </head>
+ <body onLoad='startTime()'>
+ <div id='tex'></div>
+  
+ </body>
+</html>
