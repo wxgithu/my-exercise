@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        text-align:center;
+    }
+</style>
+</head>
+<body>
+    <canvas width="500" height="400" id="c3"></canvas>
+    <script>
+        var c3=document.getElementById("c3");
+        var ctx=c3.getContext("2d");
+        var start=-90;
+        var end=-90;
+        var per=0; 
+        var timer=setInterval(function(){
+            ctx.clearRect(0,0,500,400);//清除画布
+            //画底圆
+            ctx.beginPath();
+            ctx.strokeStyle="#ccc";
+            ctx.lineWidth="10"
+            ctx.arc(250,200,100,-90*Math.PI/180,270*Math.PI/180);
+            ctx.stroke(); 
+            ctx.font="32px SimHei"
+            var str="";
+            per+=1;
+            if(per==100){
+                clearInterval(timer)
+            }
+            str=+per+"%  ";  
+            ctx.fillText(str,230,206)    
+            ctx.beginPath();
+            ctx.strokeStyle="pink";
+            end+=3.6;
+            ctx.arc(250,200,100,start*Math.PI/180,end*Math.PI/180);
+            ctx.stroke();            
+        },100)       
+    </script>
+</body>
+</html>
